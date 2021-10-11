@@ -23,8 +23,18 @@
   background-color: lightsteelblue;
   border: none;
   text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: lime;
 }
 
 a {
   margin: 5px 5px 5px 5px;
+}
+
+#results {
+  /* display: none; */
+  color: lime;
 }

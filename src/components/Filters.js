@@ -20,7 +20,7 @@ const Filters = (props) => {
     "busywork",
   ];
 
-  const [activity, setActivity] = useState("Bored?");
+  const [activity, setActivity] = useState();
 
   const getImBoredResult = async () => {
     const newResult = await fetch("http://www.boredapi.com/api/activity/");

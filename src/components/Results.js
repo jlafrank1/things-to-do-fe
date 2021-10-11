@@ -1,16 +1,17 @@
-import React from 'react'
-import EmailResults from './EmailResults'
+import React from "react";
+import EmailResults from "./EmailResults";
 
 const Results = (props) => {
   // console.log("props", props.activity)
-  const activity = props.activity
+  const activity = props.activity;
+
   return (
     <>
       <h2>{activity}</h2>
-      <EmailResults activity={activity}/>
 
+      <div>{!activity ? null : <EmailResults acitvity={activity} />}</div>
     </>
-  )
-}
+  );
+};
 
-export default Results
+export default Results;
