@@ -37,7 +37,7 @@ const Filters = (props) => {
   }, [])
 
   const typeButton = types.map((type) => (
-    <><button onClick={getTypeResult} key={type.key} value={type}>{type}</button></>
+    <><button onClick={getTypeResult} key={type} value={type}>{type}</button></>
   ))
 
   return (
