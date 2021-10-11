@@ -1,13 +1,13 @@
 import React from 'react'
+import EmailResults from './EmailResults'
 
 const Results = (props) => {
-  console.log("props", props.activity)
+  // console.log("props", props.activity)
+  const activity = props.activity
   return (
     <>
-      <h2>Learn how to fold a paper crane</h2>
-      <br/>
-      <p>Email this result</p>
-      <button>Email</button>
+      <h2>{activity}</h2>
+      <EmailResults activity={activity}/>
 
     </>
   )
