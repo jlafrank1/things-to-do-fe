@@ -24,11 +24,11 @@ const Filters = (props) => {
     console.log("e.target.value", e.target.value)
     let type= e.target.value
     const newResult = await fetch(`http://www.boredapi.com/api/activity?type=${type}`)
-    console.log("new result", newResult)
+    // console.log("new result", newResult)
     const parsedResult = await newResult.json()
-    console.log("parsed result", parsedResult)
+    // console.log("parsed result", parsedResult)
     const {key, activity} = parsedResult
-    console.log("activity", activity)
+    // console.log("activity", activity)
     setActivity(activity)
   }
 
@@ -37,7 +37,7 @@ const Filters = (props) => {
   }, [])
 
   const typeButton = types.map((type) => (
-    <><button onClick={getTypeResult} value={type}>{type}</button></>
+    <><button onClick={getTypeResult} key={type.key} value={type}>{type}</button></>
   ))
 
   return (
