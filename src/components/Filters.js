@@ -19,13 +19,26 @@ const Filters = (props) => {
     setActivity(activity)
     }
 
-    useEffect(()=> {
-      setActivity()
-    }, [])
 
-    const typeButton = types.map((type) => (
-      <><button>{type}</button></>
-    ))
+  const getTypeResult = async (e) => {
+    console.log("e.target.value", e.target.value)
+    let type= e.target.value
+    const newResult = await fetch(`http://www.boredapi.com/api/activity?type=${type}`)
+    console.log("new result", newResult)
+    const parsedResult = await newResult.json()
+    console.log("parsed result", parsedResult)
+    const {key, activity} = parsedResult
+    console.log("activity", activity)
+    setActivity(activity)
+  }
+
+  useEffect(()=> {
+    setActivity()
+  }, [])
+
+  const typeButton = types.map((type) => (
+    <><button onClick={getTypeResult} value={type}>{type}</button></>
+  ))
 
   return (
     <>
