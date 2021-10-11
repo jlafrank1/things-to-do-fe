@@ -53,7 +53,7 @@ const Filters = (props) => {
         onClick={getTypeResult}
         key={type}
         value={type}
-        className="button"
+        className="button filter"
       >
         {type}
       </button>
@@ -66,8 +66,7 @@ const Filters = (props) => {
         I'm Bored
       </button>
 
-      <br />
-      {typeButton}
+      <div id="filter-row">{typeButton}</div>
 
       <Results activity={activity} />
     </>

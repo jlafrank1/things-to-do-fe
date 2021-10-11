@@ -12,7 +12,7 @@
 }
 
 .container {
-  margin: 50px 0 50px 0;
+  margin: 50px 0 0 0;
 }
 
 .button {
@@ -24,6 +24,15 @@
   border: none;
   text-transform: uppercase;
   transition: 0.5s;
+}
+
+.filter {
+  transform: rotate(0.9turn);
+  margin: -30px;
+}
+
+#filter-row {
+  margin: 70px 0 100px 0;
 }
 
 .button:hover {
