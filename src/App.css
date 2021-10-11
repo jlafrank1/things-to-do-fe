@@ -3,7 +3,28 @@
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  z-index: 999;
+  padding: 0 0 20px 0;
   width: 100%;
+  background-color: lightsteelblue;
+}
+
+.container {
+  margin: 50px 0 50px 0;
+}
+
+.button {
+  width: 150px;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 10px;
+  background-color: lightsteelblue;
+  border: none;
+  text-transform: uppercase;
+}
+
+a {
+  margin: 5px 5px 5px 5px;
 }

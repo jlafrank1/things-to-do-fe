@@ -1,6 +1,6 @@
-import React from 'react'
-import {useState, useEffect} from 'react'
-import Results from './Results'
+import React from "react";
+import { useState, useEffect } from "react";
+import Results from "./Results";
 
 const Filters = (props) => {
   // ideally, these will dynamically populate for each category in array [type]
@@ -8,47 +8,70 @@ const Filters = (props) => {
   // for each type
   // create a function and API fetch
 
-  const types = ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+  const types = [
+    "education",
+    "recreational",
+    "social",
+    "diy",
+    "charity",
+    "cooking",
+    "relaxation",
+    "music",
+    "busywork",
+  ];
 
-  const [activity, setActivity] = useState('Bored?')
+  const [activity, setActivity] = useState("Bored?");
 
   const getImBoredResult = async () => {
-    const newResult = await fetch('http://www.boredapi.com/api/activity/')
-    const parsedResult = await newResult.json()
-    const {key, activity} = parsedResult
-    setActivity(activity)
-    }
-
+    const newResult = await fetch("http://www.boredapi.com/api/activity/");
+    const parsedResult = await newResult.json();
+    const { key, activity } = parsedResult;
+    setActivity(activity);
+  };
 
   const getTypeResult = async (e) => {
-    console.log("e.target.value", e.target.value)
-    let type= e.target.value
-    const newResult = await fetch(`http://www.boredapi.com/api/activity?type=${type}`)
+    console.log("e.target.value", e.target.value);
+    let type = e.target.value;
+    const newResult = await fetch(
+      `http://www.boredapi.com/api/activity?type=${type}`
+    );
     // console.log("new result", newResult)
-    const parsedResult = await newResult.json()
+    const parsedResult = await newResult.json();
     // console.log("parsed result", parsedResult)
-    const {key, activity} = parsedResult
+    const { key, activity } = parsedResult;
     // console.log("activity", activity)
-    setActivity(activity)
-  }
+    setActivity(activity);
+  };
 
-  useEffect(()=> {
-    setActivity()
-  }, [])
+  useEffect(() => {
+    setActivity();
+  }, []);
 
   const typeButton = types.map((type) => (
-    <><button onClick={getTypeResult} key={type} value={type}>{type}</button></>
-  ))
+    <>
+      <button
+        onClick={getTypeResult}
+        key={type}
+        value={type}
+        className="button"
+      >
+        {type}
+      </button>
+    </>
+  ));
 
   return (
     <>
-      <button onClick={getImBoredResult}>I'm Bored</button>
+      <button onClick={getImBoredResult} className="button">
+        I'm Bored
+      </button>
 
-      <br/>{typeButton}
+      <br />
+      {typeButton}
 
-      <Results activity={activity}/>
+      <Results activity={activity} />
     </>
-  )
-}
+  );
+};
 
-export default Filters
+export default Filters;

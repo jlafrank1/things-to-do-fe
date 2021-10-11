@@ -1,44 +1,43 @@
 import React from "react";
-import { Row, Col, Nav } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 
 const Footer = (props) => {
   return (
-    <>
-      <Row className="footer">
+    <div className="footer">
+      <Row>
         <hr />
-        <Col>(c) Jess LaFrank, 2021</Col>
+        <Col>&copy; 2021 Jess LaFrank</Col>
         <Col>
-          <Nav>
-            <Nav.Item>
-              <Nav.Link href="https://www.boredapi.com/" target="_blank">
-                Bored API
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="https://github.com/jlafrank1" target="_blank">
-                GitHub
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                href="https://www.linkedin.com/in/jesslafrank/"
-                target="_blank"
-              >
-                LinkedIn
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                href="https://www.jess-lafrank.com/portfolio"
-                target="_blank"
-              >
-                Portfolio
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
+          <a href="https://www.boredapi.com/" target="_blank" rel="noreferrer">
+            Bored API
+          </a>
+
+          <a
+            href="https://github.com/jlafrank1"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/jesslafrank/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://www.jess-lafrank.com/portfolio"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Portfolio
+          </a>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 
