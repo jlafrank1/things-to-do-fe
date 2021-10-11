@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup, Row, Col, Nav } from "react-bootstrap";
+import { Row, Col, Nav } from "react-bootstrap";
 
 const Footer = (props) => {
   return (
