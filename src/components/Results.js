@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Results = (props) => {
+  console.log("props", props.activity)
   return (
     <>
       <h2>Learn how to fold a paper crane</h2>
