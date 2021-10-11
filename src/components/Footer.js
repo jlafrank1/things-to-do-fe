@@ -4,7 +4,7 @@ import { Row, Col, Nav } from "react-bootstrap";
 const Footer = (props) => {
   return (
     <>
-      <Row>
+      <Row className="footer">
         <hr />
         <Col>(c) Jess LaFrank, 2021</Col>
         <Col>
