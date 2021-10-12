@@ -55,11 +55,8 @@ main {
 }
 
 #email-form {
-  max-width: 100px;
-  /* display: flex; */
-  /* justify-content: center;
-  text-align: center; */
-  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
 }
 
 .button:hover {
