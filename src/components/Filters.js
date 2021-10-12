@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Results from "./Results";
+import { Row, Col, Container } from "react-bootstrap";
 
 const Filters = (props) => {
   // ideally, these will dynamically populate for each category in array [type]
@@ -62,13 +63,37 @@ const Filters = (props) => {
 
   return (
     <>
-      <button onClick={getImBoredResult} className="button bored-button">
-        I'm <br /> Bored
-      </button>
+      <Container>
+        <Row>
+          <Col
+            xs={{ span: 12, order: "last" }}
+            sm={{ span: 6, order: "first" }}
+            md={{ span: 3, order: "first" }}
+            className="justify-content-md-center"
+          >
+            <div id="filters-container">
+              <button
+                onClick={getImBoredResult}
+                className="button bored-button"
+              >
+                I'm <br /> Bored
+              </button>
 
-      <div id="filter-row">{typeButton}</div>
+              <div id="filter-row">{typeButton}</div>
+            </div>
+          </Col>
 
-      <Results activity={activity} />
+          <Col
+            xs={{ span: 12, order: "first" }}
+            sm={{ span: 6, order: "last" }}
+            md={{ span: 9, order: "last" }}
+          >
+            <div id="results-container">
+              <Results activity={activity} />
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

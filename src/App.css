@@ -29,6 +29,7 @@ main {
   border: none;
   text-transform: uppercase;
   transition: 0.5s;
+  display: block;
 }
 
 /* .filter {
@@ -43,7 +44,15 @@ main {
 } */
 
 #filter-row {
-  margin: 50px 0 100px 0;
+  /* margin: 50px 0 100px 0; */
+}
+
+#filters-container {
+  /* display: flex;
+  width: 100px; */
+}
+
+#results-container {
 }
 
 #email-results {
