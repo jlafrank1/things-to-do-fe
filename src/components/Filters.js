@@ -62,8 +62,8 @@ const Filters = (props) => {
 
   return (
     <>
-      <button onClick={getImBoredResult} className="button">
-        I'm Bored
+      <button onClick={getImBoredResult} className="button bored-button">
+        I'm <br /> Bored
       </button>
 
       <div id="filter-row">{typeButton}</div>

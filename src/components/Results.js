@@ -9,7 +9,9 @@ const Results = (props) => {
     <>
       <h2>{activity}</h2>
 
-      <div>{!activity ? null : <EmailResults acitvity={activity} />}</div>
+      <div id="email-results">
+        {!activity ? null : <EmailResults activity={activity} />}
+      </div>
     </>
   );
 };

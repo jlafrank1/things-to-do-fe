@@ -2,17 +2,22 @@
   text-align: center;
 }
 
+main {
+  min-height: 90vh;
+}
+
 .footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   z-index: 999;
-  padding: 0 0 20px 0;
+  padding: 3px;
+  margin: 30px 0 0 0;
   width: 100%;
-  background-color: lightsteelblue;
+  /* background-color: lightsteelblue; */
 }
 
 .container {
-  margin: 50px 0 0 0;
+  margin: 30px 0 0 0;
 }
 
 .button {
@@ -26,24 +31,33 @@
   transition: 0.5s;
 }
 
-.filter {
+/* .filter {
   transform: rotate(0.9turn);
   margin: -30px;
-}
+} */
+
+/* .bored-button {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+} */
 
 #filter-row {
-  margin: 70px 0 100px 0;
+  margin: 50px 0 100px 0;
+}
+
+#email-results {
+  margin: 40px 0 30px 0;
 }
 
 .button:hover {
-  background-color: lime;
+  background-color: aquamarine;
 }
 
 a {
   margin: 5px 5px 5px 5px;
 }
 
-#results {
-  /* display: none; */
-  color: lime;
-}
+/* #blank-div {
+  height: 200px;
+} */
