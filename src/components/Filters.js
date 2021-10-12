@@ -4,11 +4,6 @@ import Results from "./Results";
 import { Row, Col, Container } from "react-bootstrap";
 
 const Filters = (props) => {
-  // ideally, these will dynamically populate for each category in array [type]
-  // set an array of types
-  // for each type
-  // create a function and API fetch
-
   const types = [
     "education",
     "recreational",
@@ -26,7 +21,7 @@ const Filters = (props) => {
   const getImBoredResult = async () => {
     const newResult = await fetch("http://www.boredapi.com/api/activity/");
     const parsedResult = await newResult.json();
-    const { key, activity } = parsedResult;
+    const { activity } = parsedResult;
     setActivity(activity);
   };
 
@@ -36,11 +31,8 @@ const Filters = (props) => {
     const newResult = await fetch(
       `http://www.boredapi.com/api/activity?type=${type}`
     );
-    // console.log("new result", newResult)
     const parsedResult = await newResult.json();
-    // console.log("parsed result", parsedResult)
-    const { key, activity } = parsedResult;
-    // console.log("activity", activity)
+    const { activity } = parsedResult;
     setActivity(activity);
   };
 
@@ -69,9 +61,8 @@ const Filters = (props) => {
             xs={{ span: 12, order: "last" }}
             sm={{ span: 6, order: "first" }}
             md={{ span: 3, order: "first" }}
-            className="justify-content-md-center"
           >
-            <div id="filters-container">
+            <div>
               <button
                 onClick={getImBoredResult}
                 className="button bored-button"
@@ -79,7 +70,7 @@ const Filters = (props) => {
                 I'm <br /> Bored
               </button>
 
-              <div id="filter-row">{typeButton}</div>
+              <div>{typeButton}</div>
             </div>
           </Col>
 
@@ -88,7 +79,9 @@ const Filters = (props) => {
             sm={{ span: 6, order: "last" }}
             md={{ span: 9, order: "last" }}
           >
-            <div id="results-container">
+            <div>
+              <h2>You should:</h2>
+              <br />
               <Results activity={activity} />
             </div>
           </Col>

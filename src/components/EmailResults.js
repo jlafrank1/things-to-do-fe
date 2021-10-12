@@ -4,9 +4,9 @@ const EmailResults = (props) => {
   console.log("props on emailResults component", props.activity);
   return (
     <>
-      <p>Email this result</p>
+      <div id="email-form">
+        <span class="small-text">Email this result</span>
 
-      <div>
         <form>
           <input name="email" defaultValue="Email address" />
           <br />

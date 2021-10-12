@@ -7,7 +7,7 @@ import Filters from "./components/Filters";
 
 function App() {
   return (
-    <div>
+    <div className="background">
       <main>
         <Intro />
         <Filters />
