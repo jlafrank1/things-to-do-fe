@@ -1,26 +1,34 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { DataContext } from "./Filters";
 
 const FavoriteResults = (props) => {
-  console.log("props on emailResults component", props.activity);
+  // console.log("props on FavoriteResults component", props.activity);
+
+  const dataContext = useContext(DataContext);
+  // usecontext to subscribe to state in Filters component. state only changes here.
+  console.log("FAVORITE RESULTS dataContext > ", dataContext);
 
   // form state
-  const [form, setForm] = useState({});
+  // const [form, setForm] = useState({});
 
   // handle submit
   const handleSubmit = async (e) => {
-    setForm({
-      activity: props.activity,
-      category: "test category",
-      isDone: false,
-    });
+    // setForm({
+    //   activity: props.activity,
+    //   category: "test category",
+    //   isDone: false,
+    // });
 
     e.preventDefault();
 
     try {
-      console.log("logging form in handleSubmit try", form);
+      console.log(
+        "FAVORITE RESULTS logging form in handleSubmit > ",
+        dataContext
+      );
       const config = {
-        body: JSON.stringify(form),
+        body: JSON.stringify(dataContext),
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -39,9 +47,9 @@ const FavoriteResults = (props) => {
   };
 
   // use effect
-  useEffect(() => {
-    setForm({ activity: props.activity });
-  }, []);
+  // useEffect(() => {
+  //   setForm();
+  // }, []);
 
   return (
     <>
