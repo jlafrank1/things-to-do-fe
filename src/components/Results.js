@@ -1,5 +1,5 @@
 import React from "react";
-import EmailResults from "./EmailResults";
+import FavoriteResults from "./FavoriteResults";
 
 const Results = (props) => {
   // console.log("props", props.activity)
@@ -10,7 +10,7 @@ const Results = (props) => {
       <h2>{activity}</h2>
 
       <div id="email-results">
-        {!activity ? null : <EmailResults activity={activity} />}
+        {!activity ? null : <FavoriteResults activity={activity} />}
       </div>
     </>
   );
