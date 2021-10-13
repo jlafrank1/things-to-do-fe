@@ -5,7 +5,7 @@ import { DataContext } from "./Filters";
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
 
-  console.log("FAVORITE RESULTS activity, type > ", activity, type);
+  // console.log("FAVORITE RESULTS activity, type > ", activity, type);
 
   // need to update the FavoriteResults form state when Results changes state
 
@@ -26,7 +26,7 @@ const FavoriteResults = (props) => {
     e.preventDefault();
 
     try {
-      console.log("FAVORITE RESULTS in handleSubmit > ", activity, type);
+      // console.log("FAVORITE RESULTS in handleSubmit > ", activity, type);
       const config = {
         body: JSON.stringify(form),
         method: "POST",
@@ -63,9 +63,24 @@ const FavoriteResults = (props) => {
     <>
       <div id="email-form">
         <form onSubmit={handleSubmit}>
-          <input name="activity" value={activity} onChange={handleChange} />
-          <input name="category" value={type} onChange={handleChange} />
-          <input name="isDone" value="false" onChange={handleChange} />
+          <input
+            type="hidden"
+            name="activity"
+            value={activity}
+            onChange={handleChange}
+          />
+          <input
+            type="hidden"
+            name="category"
+            value={type}
+            onChange={handleChange}
+          />
+          <input
+            type="hidden"
+            name="isDone"
+            value="false"
+            onChange={handleChange}
+          />
           <button type="submit" className="button">
             Favorite this result
           </button>
