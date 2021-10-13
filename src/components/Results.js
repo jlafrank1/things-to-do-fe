@@ -4,18 +4,15 @@ import FavoriteResults from "./FavoriteResults";
 import { DataContext } from "./Filters";
 
 const Results = (props) => {
-  // console.log("props", props.activity)
-  // const activity = props.activity;
+  const { activity, type } = useContext(DataContext);
 
-  const dataContext = useContext(DataContext);
-  // usecontext to subscribe to state in Filters component. state only changes here.
-  console.log("RESULTS dataContext > ", dataContext);
+  console.log("RESULTS dataContext > ", activity, type);
 
   return (
     <>
-      <h2>{dataContext}</h2>
+      <h2>{activity}</h2>
 
-      <div id="email-results">{!dataContext ? null : <FavoriteResults />}</div>
+      <div id="email-results">{!activity ? null : <FavoriteResults />}</div>
     </>
   );
 };

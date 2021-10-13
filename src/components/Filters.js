@@ -64,7 +64,7 @@ const Filters = (props) => {
 
   return (
     <>
-      <DataContext.Provider value={[activity, type]}>
+      <DataContext.Provider value={{ activity: activity, type: type }}>
         <Container>
           <Row>
             <Col

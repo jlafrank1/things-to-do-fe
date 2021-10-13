@@ -4,10 +4,10 @@ import { DataContext } from "./Filters";
 
 const FavoriteResults = (props) => {
   // console.log("props on FavoriteResults component", props.activity);
-
-  const dataContext = useContext(DataContext);
+  const { activity, type } = useContext(DataContext);
+  // const dataContext = useContext(DataContext);
   // usecontext to subscribe to state in Filters component. state only changes here.
-  console.log("FAVORITE RESULTS dataContext > ", dataContext);
+  console.log("FAVORITE RESULTS dataContext > ", activity, type);
 
   // form state
   // const [form, setForm] = useState({});
@@ -23,12 +23,9 @@ const FavoriteResults = (props) => {
     e.preventDefault();
 
     try {
-      console.log(
-        "FAVORITE RESULTS logging form in handleSubmit > ",
-        dataContext
-      );
+      console.log("FAVORITE RESULTS in handleSubmit > ", activity, type);
       const config = {
-        body: JSON.stringify(dataContext),
+        body: JSON.stringify(activity, type),
         method: "POST",
         headers: {
           "content-type": "application/json",
