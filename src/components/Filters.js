@@ -25,14 +25,11 @@ const Filters = (props) => {
     const newResult = await fetch("http://www.boredapi.com/api/activity/");
     const parsedResult = await newResult.json();
     const { activity, type } = parsedResult;
-    // console.log("FILTERS getImBoredResult activity, type > ", activity, type);
     setActivity(activity);
     setType(type);
-    console.log("FILTERS getImBoredResult activity, type > ", activity, type);
   };
 
   const getTypeResult = async (e) => {
-    // console.log("FILTERS e.target.value > ", e.target.value);
     let type = e.target.value;
     const newResult = await fetch(
       `http://www.boredapi.com/api/activity?type=${type}`
@@ -41,7 +38,6 @@ const Filters = (props) => {
     const { activity } = parsedResult;
     setActivity(activity);
     setType(type);
-    console.log("FILTERS getTypeResult activity, type > ", activity, type);
   };
 
   useEffect(() => {
@@ -49,11 +45,14 @@ const Filters = (props) => {
     setType();
   }, []);
 
+  // console.log(activity);
+  // console.log(type);
+
   const typeButton = types.map((type) => (
     <>
       <button
         onClick={getTypeResult}
-        key={type}
+        key="{type}"
         value={type}
         className="button filter"
       >

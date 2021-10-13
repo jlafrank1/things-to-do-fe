@@ -6,7 +6,7 @@ import { DataContext } from "./Filters";
 const Results = (props) => {
   const { activity, type } = useContext(DataContext);
 
-  console.log("RESULTS dataContext > ", activity, type);
+  console.log("RESULTS activity, type > ", activity, type);
 
   return (
     <>

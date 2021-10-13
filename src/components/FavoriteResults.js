@@ -3,29 +3,36 @@ import { useState, useEffect, useContext } from "react";
 import { DataContext } from "./Filters";
 
 const FavoriteResults = (props) => {
-  // console.log("props on FavoriteResults component", props.activity);
   const { activity, type } = useContext(DataContext);
-  // const dataContext = useContext(DataContext);
-  // usecontext to subscribe to state in Filters component. state only changes here.
-  console.log("FAVORITE RESULTS dataContext > ", activity, type);
+
+  console.log("FAVORITE RESULTS activity, type > ", activity, type);
+
+  // need to update the FavoriteResults form state when Results changes state
 
   // form state
-  // const [form, setForm] = useState({});
+  const [input, setInput] = useState();
+
+  const [form, setForm] = useState({
+    activity: activity,
+    category: type,
+    isDone: false,
+  });
 
   // handle submit
   const handleSubmit = async (e) => {
-    // setForm({
-    //   activity: props.activity,
-    //   category: "test category",
-    //   isDone: false,
-    // });
+    e.preventDefault();
+    setForm({
+      activity: activity,
+      category: type,
+      isDone: false,
+    });
 
     e.preventDefault();
 
     try {
       console.log("FAVORITE RESULTS in handleSubmit > ", activity, type);
       const config = {
-        body: JSON.stringify(activity, type),
+        body: JSON.stringify(form),
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -44,17 +51,25 @@ const FavoriteResults = (props) => {
   };
 
   // use effect
-  // useEffect(() => {
-  //   setForm();
-  // }, []);
+  useEffect(() => {
+    setForm({
+      activity: activity,
+      category: type,
+      isDone: false,
+    });
+  }, []);
+
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   return (
     <>
       <div id="email-form">
         <form onSubmit={handleSubmit}>
-          <input type="hidden" name="activity" value={props.activity} />
-          <input type="hidden" name="category" value="test category" />
-          <input type="hidden" name="isDone" value="false" />
+          <input name="activity" value={activity} onChange={handleChange} />
+          <input name="category" value={type} onChange={handleChange} />
+          <input name="isDone" value="false" onChange={handleChange} />
           <button type="submit" className="button">
             Favorite this result
           </button>
