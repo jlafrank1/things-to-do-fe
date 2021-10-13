@@ -12,11 +12,7 @@ const FavoriteResults = (props) => {
   // form state
   const [input, setInput] = useState();
 
-  const [form, setForm] = useState({
-    activity: activity,
-    category: type,
-    isDone: false,
-  });
+  const [form, setForm] = useState();
 
   // handle submit
   const handleSubmit = async (e) => {
@@ -57,7 +53,7 @@ const FavoriteResults = (props) => {
       category: type,
       isDone: false,
     });
-  }, []);
+  }, [activity, type]);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
