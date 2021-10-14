@@ -40,7 +40,10 @@ const FavoriteResults = (props) => {
         config
       );
       const parsedFavorite = await createdFavorite.json();
-      console.log(parsedFavorite);
+      console.log(
+        "FAVORITERESULTS > handleSubmit > your new favorite is > ",
+        parsedFavorite
+      );
     } catch (err) {
       console.log(err);
     }
