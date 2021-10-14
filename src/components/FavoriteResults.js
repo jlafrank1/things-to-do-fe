@@ -1,13 +1,12 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "./Filters";
+import { LoginContext } from "../App";
+import { getUserToken, setUserToken, clearUserToken } from "../utils/authToken";
 
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
-
-  // console.log("FAVORITE RESULTS activity, type > ", activity, type);
-
-  // need to update the FavoriteResults form state when Results changes state
+  const { currentUser, isAuthenticated } = useContext(LoginContext);
 
   // form state
   const [input, setInput] = useState();
@@ -26,13 +25,13 @@ const FavoriteResults = (props) => {
     e.preventDefault();
 
     try {
-      // console.log("FAVORITE RESULTS in handleSubmit > ", activity, type);
       const config = {
         body: JSON.stringify(form),
         method: "POST",
         headers: {
           "content-type": "application/json",
           "access-control-allow-origin": "*",
+          Authorization: `bearer ${getUserToken()}`,
         },
       };
       const createdFavorite = await fetch(

@@ -1,27 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Modal } from "react-bootstrap";
 import FavoritesList from "./FavoritesList";
+import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
+import { LoginContext } from "../App";
+// import { getUserToken, setUserToken, clearUserToken } from "./utils/authToken";
 
 const Nav = (props) => {
-  const [show, setShow] = useState(false);
+  const { currentUser, isAuthenticated, registerUser } = useContext(
+    LoginContext
+  );
+  console.log("NAV current user > ", currentUser);
+  console.log("NAV isAuthenticated > ", isAuthenticated);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [showLogin, setShowLogin] = useState(false);
+  const handleCloseLogin = () => setShowLogin(false);
+  const handleShowLogin = () => setShowLogin(true);
+
+  const [showRegister, setShowRegister] = useState(false);
+  const handleCloseRegister = () => setShowRegister(false);
+  const handleShowRegister = () => setShowRegister(true);
+
+  const [showFavorites, setShowFavorites] = useState(false);
+  const handleCloseFavorites = () => setShowFavorites(false);
+  const handleShowFavorites = () => setShowFavorites(true);
 
   return (
     <>
-      <ul>
-        <li>
-          <button className="button">Login</button>
-        </li>
-        <li>
-          <button className="button" onClick={handleShow}>
-            View Favorites
-          </button>
-        </li>
-      </ul>
+      <button className="button" onClick={handleShowLogin}>
+        Login
+      </button>
+      <Modal show={showLogin} onHide={handleCloseLogin}>
+        <LoginForm />
+      </Modal>
 
-      <Modal show={show} onHide={handleClose}>
+      <button className="button" onClick={handleShowRegister}>
+        Sign up
+      </button>
+      <Modal show={showRegister} onHide={handleCloseRegister}>
+        <RegisterForm registerUser={registerUser} />
+      </Modal>
+
+      <button className="button" onClick={handleShowFavorites}>
+        View Favorites
+      </button>
+      <Modal show={showFavorites} onHide={handleCloseFavorites}>
         <FavoritesList />
       </Modal>
     </>
