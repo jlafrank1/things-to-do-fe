@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Results from "./Results";
 import { Row, Col, Container } from "react-bootstrap";
 
