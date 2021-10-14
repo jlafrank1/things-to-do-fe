@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import FavoritesList from "./FavoritesList";
 
 const Nav = (props) => {
   const [show, setShow] = useState(false);
@@ -21,17 +22,7 @@ const Nav = (props) => {
       </ul>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>
-          <ul>
-            <li>List of Favorites</li>
-            <li>List of Favorites</li>
-            <li>List of Favorites</li>
-          </ul>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose}>Close</Button>
-        </Modal.Footer>
+        <FavoritesList />
       </Modal>
     </>
   );
