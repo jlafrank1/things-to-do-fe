@@ -12,7 +12,7 @@ const FavoritesList = (props) => {
     try {
       const favorites = await fetch("http://localhost:9000/favorites");
       const parsedFavorites = await favorites.json();
-      console.log(parsedFavorites);
+      // console.log(parsedFavorites);
       setFavorites(parsedFavorites);
     } catch (error) {
       console.log(error);
@@ -28,7 +28,7 @@ const FavoritesList = (props) => {
         }
       );
       const parsedFavorite = await deletedFavorite.json();
-      console.log(parsedFavorite);
+      // console.log(parsedFavorite);
       const updatedFavorites = favorites.filter(
         (favorite) => favorite._id !== parsedFavorite._id
       );
@@ -40,10 +40,10 @@ const FavoritesList = (props) => {
 
   const favoritesRow = favorites.map((favorite) => (
     <tr>
-      <td>{favorite.activity}</td>
       <td>{favorite.category}</td>
+      <td>{favorite.activity}</td>
       <td onClick={() => deleteFavorite(favorite._id)}>
-        <button>Delete</button>
+        <button>X</button>
       </td>
     </tr>
   ));
@@ -55,12 +55,12 @@ const FavoritesList = (props) => {
     <div>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-        <Table responsive>
+        <Table>
           <table>
             <thead>
               <tr>
-                <th>Activity</th>
                 <th>Category</th>
+                <th>Activity</th>
                 <th>Delete</th>
               </tr>
             </thead>
