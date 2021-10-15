@@ -13,6 +13,8 @@ const Nav = (props) => {
   console.log("NAV current user > ", currentUser);
   console.log("NAV isAuthenticated > ", isAuthenticated);
 
+  // log out functionality
+
   const [showLogin, setShowLogin] = useState(false);
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);

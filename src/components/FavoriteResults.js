@@ -7,6 +7,7 @@ import { getUserToken, setUserToken, clearUserToken } from "../utils/authToken";
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
   const { currentUser, isAuthenticated } = useContext(LoginContext);
+  console.log("CurentUser > ", currentUser);
 
   // form state
   const [input, setInput] = useState();
@@ -66,23 +67,13 @@ const FavoriteResults = (props) => {
       <div id="email-form">
         <form onSubmit={handleSubmit}>
           <input
-            type="hidden"
-            name="activity"
-            value={activity}
+            name="creator"
+            value="6168860051c4b6102a8ebdf7"
             onChange={handleChange}
           />
-          <input
-            type="hidden"
-            name="category"
-            value={type}
-            onChange={handleChange}
-          />
-          <input
-            type="hidden"
-            name="isDone"
-            value="false"
-            onChange={handleChange}
-          />
+          <input name="activity" value={activity} onChange={handleChange} />
+          <input name="category" value={type} onChange={handleChange} />
+          <input name="isDone" value="false" onChange={handleChange} />
           <button type="submit" className="button">
             Favorite this result
           </button>

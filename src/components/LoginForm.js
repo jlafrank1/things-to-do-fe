@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Modal } from "react-bootstrap";
+import { LoginContext } from "../App";
 
 const LoginForm = (props) => {
+  const { loginUser } = useContext(LoginContext);
+
   const initialState = { email: "", password: "" };
   const [input, setInput] = useState(initialState);
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // const createdUserToken = await props.signUp(input);
+    e.preventDefault();
+    const createdUserToken = await loginUser(input);
+    console.log("LOGIN FORM created user token > ", createdUserToken);
     //
     // if (createdUserToken) {
     //   props.history.push("/");

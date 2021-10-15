@@ -40,6 +40,30 @@ function App() {
     }
   };
 
+  const loginUser = async (data) => {
+    try {
+      const configs = {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const newUser = await fetch("http://localhost:9000/auth/login", configs);
+      const parsedUser = await newUser.json();
+      console.log("APP parsedUser > ", parsedUser);
+      setUserToken(parsedUser.token);
+      setCurrentUser(parsedUser.user);
+      setIsAuthenticated(parsedUser.isLoggedIn);
+
+      return parsedUser;
+    } catch (err) {
+      console.log(err);
+      clearUserToken();
+      setIsAuthenticated(false);
+    }
+  };
+
   return (
     <div className="background">
       <LoginContext.Provider
@@ -47,6 +71,7 @@ function App() {
           currentUser: currentUser,
           isAuthenticated: isAuthenticated,
           registerUser: registerUser,
+          loginUser: loginUser,
           token: getUserToken(),
         }}
       >
