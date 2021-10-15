@@ -6,8 +6,10 @@ import { getUserToken, setUserToken, clearUserToken } from "../utils/authToken";
 
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
-  const { currentUser, isAuthenticated } = useContext(LoginContext);
-  console.log("CurentUser > ", currentUser);
+  const { currentUser, token } = useContext(LoginContext);
+  console.log("FAVRESULTS CurrentUser > ", currentUser);
+  console.log(currentUser._id);
+  console.log("FAVRESULTS Token > ", token)
 
   // form state
   const [input, setInput] = useState();
@@ -21,24 +23,28 @@ const FavoriteResults = (props) => {
       activity: activity,
       category: type,
       isDone: false,
+      creator: currentUser._id,
     });
 
-    e.preventDefault();
-
     try {
+      console.log("FAVRESULTS > Hitting Try");
       const config = {
         body: JSON.stringify(form),
         method: "POST",
         headers: {
           "content-type": "application/json",
           "access-control-allow-origin": "*",
-          Authorization: `bearer ${getUserToken()}`,
+          "Authorization": `bearer ${token}`,
         },
       };
+      console.log("FAVRESULTS > Created configs");
+
       const createdFavorite = await fetch(
         "http://localhost:9000/favorites",
         config
       );
+      console.log("FAVRESULTS > createdFavorite", createdFavorite);
+
       const parsedFavorite = await createdFavorite.json();
       console.log(
         "FAVORITERESULTS > handleSubmit > your new favorite is > ",
@@ -55,6 +61,7 @@ const FavoriteResults = (props) => {
       activity: activity,
       category: type,
       isDone: false,
+      creator: currentUser._id,
     });
   }, [activity, type]);
 
@@ -66,14 +73,14 @@ const FavoriteResults = (props) => {
     <>
       <div id="email-form">
         <form onSubmit={handleSubmit}>
-          <input
-            name="creator"
-            value="6168860051c4b6102a8ebdf7"
-            onChange={handleChange}
-          />
           <input name="activity" value={activity} onChange={handleChange} />
           <input name="category" value={type} onChange={handleChange} />
           <input name="isDone" value="false" onChange={handleChange} />
+          <input
+            name="creator"
+            value={currentUser._id}
+            onChange={handleChange}
+          />
           <button type="submit" className="button">
             Favorite this result
           </button>
