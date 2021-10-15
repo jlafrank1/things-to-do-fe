@@ -10,7 +10,7 @@ const Filters = (props) => {
 
   const { BASE_URL } = useContext(
     LoginContext)
-    console.log("FILTERS base_url > ", BASE_URL)
+    // console.log("FILTERS base_url > ", BASE_URL)
 
   const types = [
     "education",

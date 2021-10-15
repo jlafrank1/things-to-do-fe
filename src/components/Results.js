@@ -8,7 +8,7 @@ const Results = (props) => {
   const { activity, type } = useContext(DataContext);
   const { BASE_URL } = useContext(
     LoginContext)
-    console.log("RESULTS BASE_URL > ", BASE_URL)
+    // console.log("RESULTS BASE_URL > ", BASE_URL)
 
   console.log("RESULTS activity, type > ", activity, type);
 
