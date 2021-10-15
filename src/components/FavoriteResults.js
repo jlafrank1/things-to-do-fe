@@ -28,7 +28,7 @@ const FavoriteResults = (props) => {
     });
 
     try {
-      console.log("FAVRESULTS > Hitting Try");
+      // console.log("FAVRESULTS > Hitting Try");
       const config = {
         body: JSON.stringify(form),
         method: "POST",
@@ -38,13 +38,13 @@ const FavoriteResults = (props) => {
           "Authorization": `bearer ${token}`,
         },
       };
-      console.log("FAVRESULTS > Created configs");
+      // console.log("FAVRESULTS > Created configs");
 
       const createdFavorite = await fetch(
         BASE_URL + "/favorites",
         config
       );
-      console.log("FAVRESULTS > createdFavorite", createdFavorite);
+      // console.log("FAVRESULTS > createdFavorite", createdFavorite);
 
       const parsedFavorite = await createdFavorite.json();
       console.log(

@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import { LoginContext } from "../App";
 
 const LoginForm = (props) => {
-  const { loginUser } = useContext(LoginContext);
+  const { loginUser, token } = useContext(LoginContext);
   // console.log("LOGIN BASE_URL > ", BASE_URL)
 
   const initialState = { email: "", password: "" };
@@ -11,19 +11,30 @@ const LoginForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const createdUserToken = await loginUser(input);
-    console.log("LOGIN FORM created user token > ", createdUserToken);
+    setInput(initialState);
+    try {
+      const config = {
+        body: JSON.stringify(input),
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "access-control-allow-origin": "*",
+          "Authorization": `bearer ${token}`,
+        }
+      }
+      console.log("LOGINFORM created configs")
+
+      const createdUserToken = await loginUser(input, config);
+      console.log("LOGIN FORM created user token > ", createdUserToken);
+
+
+
+    } catch (error) {
+      console.log(error)
+    }
 
     // invoke close modal here
     props.onHide()
-    // if (createdUserToken) {
-    //   props.history.push("/");
-    // } else {
-    //   props.history.push("/");
-    //   // console.log("meh?");
-    // }
-
-    setInput(initialState);
   };
 
   const handleChange = (e) => {
