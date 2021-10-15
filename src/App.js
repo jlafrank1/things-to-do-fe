@@ -1,11 +1,15 @@
 import "./App.css";
 import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
 import { getUserToken, setUserToken, clearUserToken } from "./utils/authToken";
 import Footer from "./components/Footer";
 import Intro from "./components/Intro";
 import Filters from "./components/Filters";
 // import Results from './components/Results'
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
+import FavoritesList from "./components/FavoritesList";
+import RegisterForm from "./components/RegisterForm";
+import LoginForm from "./components/LoginForm";
 
 require('dotenv').config()
 
@@ -17,7 +21,6 @@ const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
 // } else {
 //   BASE_URL = process.env.REACT_APP_DEV_URL
 // }
-
 
 export const LoginContext = React.createContext();
 
@@ -77,6 +80,18 @@ function App() {
     }
   };
 
+  const [showLogin, setShowLogin] = useState(false);
+  const handleCloseLogin = () => setShowLogin(false);
+  const handleShowLogin = () => setShowLogin(true);
+
+  const [showRegister, setShowRegister] = useState(false);
+  const handleCloseRegister = () => setShowRegister(false);
+  const handleShowRegister = () => setShowRegister(true);
+
+  const [showFavorites, setShowFavorites] = useState(false);
+  const handleCloseFavorites = () => setShowFavorites(false);
+  const handleShowFavorites = () => setShowFavorites(true);
+
   return (
     <div className="background">
       <LoginContext.Provider
@@ -90,7 +105,30 @@ function App() {
         }}
       >
         <main>
-          <Nav />
+          {/* login, singup, logout, view favorites*/}
+          <button className="button" onClick={handleShowLogin}>
+            Login
+          </button>
+          <Modal show={showLogin} onHide={handleCloseLogin}>
+            <LoginForm onHide={handleCloseLogin}/>
+          </Modal>
+
+          <button className="button" onClick={handleShowRegister}>
+            Sign up
+          </button>
+          <Modal show={showRegister} onHide={handleCloseRegister}>
+            <RegisterForm registerUser={registerUser} onHide={handleCloseRegister} />
+          </Modal>
+
+          <button className="button" onClick={handleShowFavorites}>
+            View Favorites
+          </button>
+          <Modal show={showFavorites} onHide={handleCloseFavorites}>
+            <FavoritesList onHide={handleCloseFavorites}/>
+          </Modal>
+
+
+
           <Intro />
           <Filters />
         </main>

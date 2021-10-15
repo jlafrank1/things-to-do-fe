@@ -3,9 +3,6 @@ import { LoginContext } from "../App";
 import { Modal, Table } from "react-bootstrap";
 
 const FavoritesList = (props) => {
-  // needs to fetch all Favorites items from the database
-  // not sure if need to update state yet
-  // i think state will update when component mounts
 
   const { currentUser, BASE_URL } = useContext(
     LoginContext
