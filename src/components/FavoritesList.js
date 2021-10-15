@@ -7,9 +7,10 @@ const FavoritesList = (props) => {
   // not sure if need to update state yet
   // i think state will update when component mounts
 
-  const { currentUser } = useContext(
+  const { currentUser, BASE_URL } = useContext(
     LoginContext
   );
+  console.log("FAVLIST BASE_URL > ", BASE_URL)
   console.log("FAVLIST currentUser > ", currentUser)
   const user = currentUser._id
 

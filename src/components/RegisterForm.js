@@ -3,7 +3,8 @@ import { Modal } from "react-bootstrap";
 import { LoginContext } from "../App";
 
 const RegisterForm = (props) => {
-  const { registerUser } = useContext(LoginContext);
+  const { registerUser, BASE_URL } = useContext(LoginContext);
+  console.log("REG FORM BASE_URL > ", BASE_URL)
 
   const initialState = { email: "", password: "" };
   const [input, setInput] = useState(initialState);

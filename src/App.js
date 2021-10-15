@@ -7,6 +7,18 @@ import Filters from "./components/Filters";
 // import Results from './components/Results'
 import Nav from "./components/Nav";
 
+require('dotenv').config()
+
+const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
+
+// let BASE_URL;
+// if (process.env.NODE_ENV === "production") {
+//   BASE_URL = process.env.REACT_APP_PRODUCTION_URL
+// } else {
+//   BASE_URL = process.env.REACT_APP_DEV_URL
+// }
+
+
 export const LoginContext = React.createContext();
 
 function App() {
@@ -14,6 +26,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const registerUser = async (data) => {
+    console.log("APP Base_URL > ", BASE_URL)
     try {
       const configs = {
         method: "POST",
@@ -23,7 +36,7 @@ function App() {
         },
       };
       const newUser = await fetch(
-        "http://localhost:9000/auth/register",
+        BASE_URL + "/auth/register",
         configs
       );
       const parsedUser = await newUser.json();
@@ -73,6 +86,7 @@ function App() {
           registerUser: registerUser,
           loginUser: loginUser,
           token: getUserToken(),
+          BASE_URL
         }}
       >
         <main>

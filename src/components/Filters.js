@@ -1,11 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Results from "./Results";
 import { Row, Col, Container } from "react-bootstrap";
+import { LoginContext } from "../App";
 
 export const DataContext = React.createContext();
 
 const Filters = (props) => {
+
+  const { BASE_URL } = useContext(
+    LoginContext)
+    console.log("FILTERS base_url > ", BASE_URL)
+
   const types = [
     "education",
     "recreational",

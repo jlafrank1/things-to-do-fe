@@ -2,14 +2,15 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "./Filters";
 import { LoginContext } from "../App";
-import { getUserToken, setUserToken, clearUserToken } from "../utils/authToken";
+// import { getUserToken, setUserToken, clearUserToken } from "../utils/authToken";
 
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
-  const { currentUser, token } = useContext(LoginContext);
+  const { currentUser, token, BASE_URL } = useContext(LoginContext);
   console.log("FAVRESULTS CurrentUser > ", currentUser);
-  console.log(currentUser._id);
+  console.log("FAVRESULTS currentUser Id >", currentUser._id);
   console.log("FAVRESULTS Token > ", token)
+  console.log("FAVRESULTS BASE_URL > ", BASE_URL)
 
   // form state
   const [input, setInput] = useState();
