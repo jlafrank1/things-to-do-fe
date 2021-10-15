@@ -63,7 +63,7 @@ const FavoriteResults = (props) => {
       isDone: false,
       creator: currentUser._id,
     });
-  }, [activity, type]);
+  }, [activity, type, currentUser]);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -73,10 +73,10 @@ const FavoriteResults = (props) => {
     <>
       <div id="email-form">
         <form onSubmit={handleSubmit}>
-          <input name="activity" value={activity} onChange={handleChange} />
-          <input name="category" value={type} onChange={handleChange} />
-          <input name="isDone" value="false" onChange={handleChange} />
-          <input
+          <input type="hidden" name="activity" value={activity} onChange={handleChange} />
+          <input type="hidden" name="category" value={type} onChange={handleChange} />
+          <input type="hidden" name="isDone" value="false" onChange={handleChange} />
+          <input type="hidden"
             name="creator"
             value={currentUser._id}
             onChange={handleChange}
