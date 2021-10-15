@@ -62,7 +62,7 @@ function App() {
           "Content-Type": "application/json",
         },
       };
-      const newUser = await fetch("http://localhost:9000/auth/login", configs);
+      const newUser = await fetch(BASE_URL + "/auth/login", configs);
       const parsedUser = await newUser.json();
       console.log("APP parsedUser > ", parsedUser);
       setUserToken(parsedUser.token);

@@ -7,10 +7,10 @@ import { LoginContext } from "../App";
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
   const { currentUser, token, BASE_URL } = useContext(LoginContext);
-  console.log("FAVRESULTS CurrentUser > ", currentUser);
-  console.log("FAVRESULTS currentUser Id >", currentUser._id);
-  console.log("FAVRESULTS Token > ", token)
-  console.log("FAVRESULTS BASE_URL > ", BASE_URL)
+  // console.log("FAVRESULTS CurrentUser > ", currentUser);
+  // console.log("FAVRESULTS currentUser Id >", currentUser._id);
+  // console.log("FAVRESULTS Token > ", token)
+  // console.log("FAVRESULTS BASE_URL > ", BASE_URL)
 
   // form state
   const [input, setInput] = useState();
@@ -41,7 +41,7 @@ const FavoriteResults = (props) => {
       console.log("FAVRESULTS > Created configs");
 
       const createdFavorite = await fetch(
-        "http://localhost:9000/favorites",
+        BASE_URL + "/favorites",
         config
       );
       console.log("FAVRESULTS > createdFavorite", createdFavorite);

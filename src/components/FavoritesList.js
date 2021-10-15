@@ -10,7 +10,7 @@ const FavoritesList = (props) => {
   const { currentUser, BASE_URL } = useContext(
     LoginContext
   );
-  console.log("FAVLIST BASE_URL > ", BASE_URL)
+  // console.log("FAVLIST BASE_URL > ", BASE_URL)
   console.log("FAVLIST currentUser > ", currentUser)
   const user = currentUser._id
 
@@ -18,22 +18,22 @@ const FavoritesList = (props) => {
 
   const getFavorites = async () => {
     try {
-      const favorites = await fetch("http://localhost:9000/favorites");
+      const favorites = await fetch(BASE_URL + "/favorites");
       const parsedFavorites = await favorites.json();
-      console.log("FAVLIST parsedFavs > ", parsedFavorites);
-      console.log("FAVLIST parsedFavs creator > ", parsedFavorites[0].creator._id)
+      // console.log("FAVLIST parsedFavs > ", parsedFavorites);
+      // console.log("FAVLIST parsedFavs creator > ", parsedFavorites[0].creator._id)
       setFavorites(parsedFavorites);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getUserFavorites = () => {
-    console.log("FAVLIST > getUserFavorites > user id > ", favorites[0].creator._id)
-    // for all items in favorites array
-    // if favorites[i].creator._id === user
-    // map it out
-  }
+  // const getUserFavorites = () => {
+  //   console.log("FAVLIST > getUserFavorites > user id > ", favorites[0].creator._id)
+  //   // for all items in favorites array
+  //   // if favorites[i].creator._id === user
+  //   // map it out
+  // }
 
   const userFavorites = favorites.filter(userFavorite => (userFavorite.creator._id === user))
   console.log(userFavorites)
@@ -41,7 +41,7 @@ const FavoritesList = (props) => {
   const deleteFavorite = async (id) => {
     try {
       const deletedFavorite = await fetch(
-        "http://localhost:9000/favorites/" + id,
+        BASE_URL + "/favorites/" + id,
         {
           method: "DELETE",
         }
@@ -70,6 +70,7 @@ const FavoritesList = (props) => {
   useEffect(() => {
     getFavorites();
   }, []);
+
   return (
     <div>
       <Modal.Header closeButton></Modal.Header>
@@ -85,7 +86,6 @@ const FavoritesList = (props) => {
             </thead>
             <tbody>{favoritesRow}</tbody>
           </table>
-          <button onClick={getUserFavorites}>get user fav</button>
         </Table>
       </Modal.Body>
     </div>
