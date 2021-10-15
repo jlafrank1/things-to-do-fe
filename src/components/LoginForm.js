@@ -18,8 +18,6 @@ const LoginForm = (props) => {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "access-control-allow-origin": "*",
-          "Authorization": `bearer ${token}`,
         }
       }
       console.log("LOGINFORM created configs > ", config)

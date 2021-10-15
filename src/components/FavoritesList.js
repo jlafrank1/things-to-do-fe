@@ -36,6 +36,7 @@ const FavoritesList = (props) => {
   console.log(userFavorites)
 
   const deleteFavorite = async (id) => {
+    console.log("FAVLIST > deleteFavorite id > ", id)
     try {
       const deletedFavorite = await fetch(
         BASE_URL + "/favorites/" + id,
@@ -43,6 +44,7 @@ const FavoritesList = (props) => {
           method: "DELETE",
         }
       );
+      console.log("FAVLIST > deleteFavorite deletedFavorite > ", deletedFavorite)
       const parsedFavorite = await deletedFavorite.json();
       // console.log(parsedFavorite);
       const updatedFavorites = favorites.filter(
