@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 import { LoginContext } from "../App";
 
 const RegisterForm = (props) => {
-  const { registerUser, BASE_URL } = useContext(LoginContext);
+  const { registerUser } = useContext(LoginContext);
   // console.log("REG FORM BASE_URL > ", BASE_URL)
 
   const initialState = { email: "", password: "" };
@@ -13,6 +13,9 @@ const RegisterForm = (props) => {
     e.preventDefault();
     const createdUserToken = await registerUser(input);
     console.log("REG FORM created user token > ", createdUserToken);
+
+    // invoke close modal here
+    props.onHide()
     // if (createdUserToken) {
     //   props.history.push("/");
     // } else {

@@ -13,6 +13,7 @@ import LoginForm from "./components/LoginForm";
 
 require('dotenv').config()
 
+// const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
 const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
 
 // let BASE_URL;
@@ -43,7 +44,7 @@ function App() {
         configs
       );
       const parsedUser = await newUser.json();
-      console.log("APP parsedUser > ", parsedUser);
+      console.log("APP parsedUser register > ", parsedUser);
       setUserToken(parsedUser.token);
       setCurrentUser(parsedUser.user);
       setIsAuthenticated(parsedUser.isLoggedIn);
@@ -67,7 +68,7 @@ function App() {
       };
       const newUser = await fetch(BASE_URL + "/auth/login", configs);
       const parsedUser = await newUser.json();
-      console.log("APP parsedUser > ", parsedUser);
+      console.log("APP parsedUser login > ", parsedUser);
       setUserToken(parsedUser.token);
       setCurrentUser(parsedUser.user);
       setIsAuthenticated(parsedUser.isLoggedIn);
