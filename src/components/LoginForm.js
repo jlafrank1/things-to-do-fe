@@ -12,7 +12,9 @@ const LoginForm = (props) => {
     e.preventDefault();
     const createdUserToken = await loginUser(input);
     console.log("LOGIN FORM created user token > ", createdUserToken);
-    //
+
+    // invoke close modal here
+    props.onHide()
     // if (createdUserToken) {
     //   props.history.push("/");
     // } else {

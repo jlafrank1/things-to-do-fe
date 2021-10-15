@@ -33,21 +33,21 @@ const Nav = (props) => {
         Login
       </button>
       <Modal show={showLogin} onHide={handleCloseLogin}>
-        <LoginForm />
+        <LoginForm onHide={handleCloseLogin}/>
       </Modal>
 
       <button className="button" onClick={handleShowRegister}>
         Sign up
       </button>
       <Modal show={showRegister} onHide={handleCloseRegister}>
-        <RegisterForm registerUser={registerUser} />
+        <RegisterForm registerUser={registerUser} onHide={handleCloseRegister} />
       </Modal>
 
       <button className="button" onClick={handleShowFavorites}>
         View Favorites
       </button>
       <Modal show={showFavorites} onHide={handleCloseFavorites}>
-        <FavoritesList />
+        <FavoritesList onHide={handleCloseFavorites}/>
       </Modal>
     </>
   );
