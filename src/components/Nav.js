@@ -7,11 +7,13 @@ import { LoginContext } from "../App";
 // import { getUserToken, setUserToken, clearUserToken } from "./utils/authToken";
 
 const Nav = (props) => {
-  const { currentUser, isAuthenticated, registerUser } = useContext(
+  const { registerUser } = useContext(
     LoginContext
   );
-  console.log("NAV current user > ", currentUser);
-  console.log("NAV isAuthenticated > ", isAuthenticated);
+  // console.log("NAV current user > ", currentUser);
+  // console.log("NAV current user email > ", currentUser.email)
+  // console.log("NAV current user id > ", currentUser._id)
+  // console.log("NAV isAuthenticated > ", isAuthenticated);
 
   // log out functionality
 
