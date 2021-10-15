@@ -22,7 +22,7 @@ const LoginForm = (props) => {
           "Authorization": `bearer ${token}`,
         }
       }
-      console.log("LOGINFORM created configs")
+      console.log("LOGINFORM created configs > ", config)
 
       const createdUserToken = await loginUser(input, config);
       console.log("LOGIN FORM created user token > ", createdUserToken);

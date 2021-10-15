@@ -44,7 +44,7 @@ const FavoriteResults = (props) => {
         BASE_URL + "/favorites",
         config
       );
-      // console.log("FAVRESULTS > createdFavorite", createdFavorite);
+      console.log("FAVRESULTS > createdFavorite", createdFavorite);
 
       const parsedFavorite = await createdFavorite.json();
       console.log(
