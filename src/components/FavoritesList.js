@@ -4,7 +4,7 @@ import { Modal, Table } from "react-bootstrap";
 
 const FavoritesList = (props) => {
 
-  const { currentUser, BASE_URL } = useContext(
+  const { currentUser, token, BASE_URL } = useContext(
     LoginContext
   );
   // console.log("FAVLIST BASE_URL > ", BASE_URL)
@@ -42,6 +42,11 @@ const FavoritesList = (props) => {
         BASE_URL + "/favorites/" + id,
         {
           method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+            "access-control-allow-origin": "*",
+            "Authorization": `bearer ${token}`,
+          },
         }
       );
       console.log("FAVLIST > deleteFavorite deletedFavorite > ", deletedFavorite)
