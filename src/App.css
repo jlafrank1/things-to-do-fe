@@ -3,11 +3,12 @@
 }
 
 .background {
-  /* background-color: #e0e2ee; */
+  background-image: url('./gradient.png');
+  background-size: cover;
 }
 
 main {
-  min-height: 90vh;
+  min-height: 93vh;
   top: 0;
 }
 
@@ -24,21 +25,35 @@ main {
 }
 
 .button {
-  width: 150px;
-  border-radius: 25px;
+  width: 120px;
+  border-radius: 8px;
   padding: 5px;
   margin: 10px;
-  background-color: #5c82a6;
-  border: none;
+  background-color: #efe3df;
+  border: solid 2px #8b7fba;
   text-transform: uppercase;
+  font-size: 12px;
   transition: 0.5s;
   text-align: center;
   display: flex;
   justify-content: center;
-  color: white;
+  color: black;
 }
 
+@keyframes bounce {
+  0% {
+    transform: rotate(0deg)
+  } 20% {
+    transform: translate(10px)
+  } 100% {
+    transform: rotate(0deg)
+  }
+}
 
+.button:hover {
+  background-color: #a1c0b9;
+  animation: bounce 1s alternate;
+}
 
 /* Results component, wrapping EmailResults */
 #email-results {
@@ -51,9 +66,6 @@ main {
   /* background-color: lime; */
 }
 
-.button:hover {
-  background-color: #d69d66;
-}
 
 a {
   margin: 5px 5px 5px 5px;

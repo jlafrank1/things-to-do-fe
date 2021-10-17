@@ -121,7 +121,7 @@ function App() {
         }}
       >
         <main>
-      <Stack direction="horizontal" gap={3}>
+      <Stack direction="horizontal">
         {!currentUser.email ?
         <><div><button className="button" onClick={handleShowLogin}>
           Login
@@ -136,7 +136,7 @@ function App() {
           View Favorites
         </button></div>
 
-        <div><h3>Welcome, {currentUser.email}!</h3></div>
+        <div><h4>Welcome! You're logged in.</h4></div>
 
         </> }
 
@@ -154,8 +154,6 @@ function App() {
       <Modal show={showFavorites} onHide={handleCloseFavorites}>
         <FavoritesList onHide={handleCloseFavorites}/>
       </Modal>
-
-
 
           <Intro />
           <Filters />
