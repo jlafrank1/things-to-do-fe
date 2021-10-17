@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Stack } from "react-bootstrap";
 import { getUserToken, setUserToken, clearUserToken } from "./utils/authToken";
 import Footer from "./components/Footer";
 import Intro from "./components/Intro";
@@ -105,27 +105,32 @@ function App() {
         }}
       >
         <main>
-          {/* login, singup, logout, view favorites*/}
-          <button className="button" onClick={handleShowLogin}>
-            Login
-          </button>
-          <Modal show={showLogin} onHide={handleCloseLogin}>
-            <LoginForm onHide={handleCloseLogin}/>
-          </Modal>
+      <Stack direction="horizontal" gap={3}>
+        <div><button className="button" onClick={handleShowLogin}>
+          Login
+        </button></div>
 
-          <button className="button" onClick={handleShowRegister}>
-            Sign up
-          </button>
-          <Modal show={showRegister} onHide={handleCloseRegister}>
-            <RegisterForm registerUser={registerUser} onHide={handleCloseRegister} />
-          </Modal>
+        <div><button className="button" onClick={handleShowRegister}>
+          Sign up
+        </button></div>
 
-          <button className="button" onClick={handleShowFavorites}>
-            View Favorites
-          </button>
-          <Modal show={showFavorites} onHide={handleCloseFavorites}>
-            <FavoritesList onHide={handleCloseFavorites}/>
-          </Modal>
+        <div><button className="button" onClick={handleShowFavorites}>
+          View Favorites
+        </button></div>
+      </Stack>
+
+      {/* Modals */}
+      <Modal show={showLogin} onHide={handleCloseLogin}>
+        <LoginForm onHide={handleCloseLogin}/>
+      </Modal>
+
+      <Modal show={showRegister} onHide={handleCloseRegister}>
+        <RegisterForm registerUser={registerUser} onHide={handleCloseRegister} />
+      </Modal>
+
+      <Modal show={showFavorites} onHide={handleCloseFavorites}>
+        <FavoritesList onHide={handleCloseFavorites}/>
+      </Modal>
 
 
 

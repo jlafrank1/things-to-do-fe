@@ -38,16 +38,7 @@ main {
   color: white;
 }
 
-/* .filter {
-  transform: rotate(0.9turn);
-  margin: -30px;
-} */
 
-/* .bored-button {
-  height: 110px;
-  width: 110px;
-  border-radius: 50%;
-} */
 
 /* Results component, wrapping EmailResults */
 #email-results {
