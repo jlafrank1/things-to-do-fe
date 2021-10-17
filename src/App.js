@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Stack } from "react-bootstrap";
 import { getUserToken, setUserToken, clearUserToken } from "./utils/authToken";
 import Footer from "./components/Footer";
@@ -81,6 +81,20 @@ function App() {
     }
   };
 
+  const logoutUser = async (data) => {
+    console.log("APP logout route")
+    // useState to set currentUser and isAuthenticated to zero
+    // and clearUserToken to clear token
+    setCurrentUser('')
+    setIsAuthenticated('')
+    clearUserToken('')
+    console.log("APP logoutUser new currentuser > ", currentUser)
+  }
+
+  useEffect(()=> {
+
+  })
+
   const [showLogin, setShowLogin] = useState(false);
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);
@@ -92,6 +106,7 @@ function App() {
   const [showFavorites, setShowFavorites] = useState(false);
   const handleCloseFavorites = () => setShowFavorites(false);
   const handleShowFavorites = () => setShowFavorites(true);
+
 
   return (
     <div className="background">
@@ -107,7 +122,7 @@ function App() {
       >
         <main>
       <Stack direction="horizontal" gap={3}>
-        {! currentUser.email ?
+        {!currentUser.email ?
         <><div><button className="button" onClick={handleShowLogin}>
           Login
         </button></div>
@@ -116,7 +131,7 @@ function App() {
           Sign up
         </button></div></> :
         <>
-        <div><button className="button">Log out</button></div>
+        <div><button className="button" onClick={logoutUser}>Log out</button></div>
         <div><button className="button" onClick={handleShowFavorites}>
           View Favorites
         </button></div>
