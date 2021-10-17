@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { LoginContext } from "../App";
 
 const LoginForm = (props) => {
@@ -17,19 +17,18 @@ const LoginForm = (props) => {
         method: "POST",
         headers: {
           "content-type": "application/json",
-        }
-      }
-      console.log("LOGINFORM created configs > ", config)
+        },
+      };
+      console.log("LOGINFORM created configs > ", config);
 
       const createdUserToken = await loginUser(input, config);
       console.log("LOGIN FORM created user token > ", createdUserToken);
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
 
     // invoke close modal here
-    props.onHide()
+    props.onHide();
   };
 
   const handleChange = (e) => {
@@ -41,27 +40,34 @@ const LoginForm = (props) => {
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <h1>Log in</h1>
-        <form onSubmit={handleSubmit}>
-          <label email="email">Email: </label>
-          <input
-            id="email"
-            name="email"
-            value={input.email}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <label htmlFor="password">Password: </label>
-          <input
-            id="password"
-            name="password"
-            value={input.password}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label email="email">Email: </Form.Label>
+            <br />
+            <Form.Control
+              id="email"
+              name="email"
+              value={input.email}
+              onChange={handleChange}
+            />
+            <Form.Text className="text-muted">Or username</Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="password">Password: </Form.Label>
+            <br />
+            <Form.Control
+              id="password"
+              name="password"
+              type="password"
+              value={input.password}
+              onChange={handleChange}
+            />
+            <br />
+            <br />
+          </Form.Group>
           <input type="submit" value="Login" />
-        </form>
+        </Form>
       </Modal.Body>
     </>
   );
