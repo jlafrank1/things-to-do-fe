@@ -37,21 +37,22 @@ const FavoritesList = (props) => {
 
   const deleteFavorite = async (id) => {
     console.log("FAVLIST > deleteFavorite id > ", id)
+    console.log("FAVLIST > deleteFavorites token > ", token)
     try {
       const deletedFavorite = await fetch(
         BASE_URL + "/favorites/" + id,
         {
           method: "DELETE",
           headers: {
-            "content-type": "application/json",
-            "access-control-allow-origin": "*",
-            "Authorization": `bearer ${token}`,
+            // "content-type": "application/json",
+            // "access-control-allow-origin": "*",
+            "Authorization": `Bearer ${token}`,
           },
         }
       );
       console.log("FAVLIST > deleteFavorite deletedFavorite > ", deletedFavorite)
       const parsedFavorite = await deletedFavorite.json();
-      // console.log(parsedFavorite);
+      console.log("FAVLIST > deleteFavorite parsedFavorite > ", parsedFavorite);
       const updatedFavorites = favorites.filter(
         (favorite) => favorite._id !== parsedFavorite._id
       );
