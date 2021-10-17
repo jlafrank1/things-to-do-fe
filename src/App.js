@@ -115,39 +115,41 @@ function App() {
         }}
       >
         <main>
-          <Stack direction="horizontal">
-            {!currentUser.email ? (
-              <>
-                <div>
-                  <button className="button" onClick={handleShowLogin}>
-                    Login
-                  </button>
-                </div>
+          <div className="right">
+            <Stack direction="horizontal">
+              {!currentUser.email ? (
+                <>
+                  <div>
+                    <button className="button" onClick={handleShowLogin}>
+                      Login
+                    </button>
+                  </div>
 
-                <div>
-                  <button className="button" onClick={handleShowRegister}>
-                    Sign up
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <h4>Welcome! You're logged in.</h4>
-                </div>
-                <div>
-                  <button className="button" onClick={logoutUser}>
-                    Log out
-                  </button>
-                </div>
-                <div>
-                  <button className="button" onClick={handleShowFavorites}>
-                    View Favorites
-                  </button>
-                </div>
-              </>
-            )}
-          </Stack>
+                  <div>
+                    <button className="button" onClick={handleShowRegister}>
+                      Sign up
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <button className="button" onClick={logoutUser}>
+                      Log out
+                    </button>
+                  </div>
+                  <div>
+                    <button className="button" onClick={handleShowFavorites}>
+                      View Favorites
+                    </button>
+                  </div>
+                  <div className="ms-auto">
+                    <h4>Welcome! You're logged in.</h4>
+                  </div>
+                </>
+              )}
+            </Stack>
+          </div>
 
           {/* Modals */}
           <Modal show={showLogin} onHide={handleCloseLogin}>

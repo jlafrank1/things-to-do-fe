@@ -73,8 +73,7 @@ const Filters = (props) => {
                   onClick={getImBoredResult}
                   className="button bored-button"
                 >
-                  I'm <br />
-                  Bored!{" "}
+                  I'm Bored!
                 </button>
 
                 <Stack direction="horizontal">
@@ -90,6 +89,7 @@ const Filters = (props) => {
               md={{ span: 12, order: "last" }}
             >
               <div className="center">
+                <br />
                 <h2>You should:</h2>
                 <br />
                 <Results />

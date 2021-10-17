@@ -1,5 +1,6 @@
 * {
   /* text-align: center; */
+  font-family: "Poppins", sans-serif;
 }
 
 .background {
@@ -30,9 +31,9 @@ main {
   padding: 5px;
   margin: 10px;
   background-color: #efe3df;
-  border: solid 2px #8b7fba;
+  /* border: solid 2px #8b7fba; */
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 13px;
   transition: 0.5s;
   text-align: center;
   /* display: flex;
@@ -54,7 +55,7 @@ main {
 
 .button:hover {
   background-color: #a1c0b9;
-  animation: bounce 1s alternate;
+  animation: bounce 1s;
 }
 
 /* Results component, wrapping EmailResults */
@@ -79,4 +80,9 @@ a {
 .center {
   /* background-color: lime; */
   text-align: center;
+}
+
+.right {
+  /* background-color: lime; */
+  margin-right: 0px;
 }
