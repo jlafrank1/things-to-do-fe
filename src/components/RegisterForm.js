@@ -27,7 +27,7 @@ const RegisterForm = (props) => {
     <>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-        <h1>Register</h1>
+        <h1 className="center">Register</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label email="email">Email: </Form.Label>
