@@ -63,8 +63,6 @@ const LoginForm = (props) => {
               value={input.password}
               onChange={handleChange}
             />
-            <br />
-            <br />
           </Form.Group>
           <input type="submit" value="Login" />
         </Form>
