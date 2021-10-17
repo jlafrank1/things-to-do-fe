@@ -4,7 +4,6 @@ import { LoginContext } from "../App";
 
 const RegisterForm = (props) => {
   const { registerUser } = useContext(LoginContext);
-  // console.log("REG FORM BASE_URL > ", BASE_URL)
 
   const initialState = { email: "", password: "" };
   const [input, setInput] = useState(initialState);
@@ -16,12 +15,6 @@ const RegisterForm = (props) => {
 
     // invoke close modal here
     props.onHide()
-    // if (createdUserToken) {
-    //   props.history.push("/");
-    // } else {
-    //   props.history.push("/");
-    //   // console.log("meh?");
-    // }
 
     setInput(initialState);
   };

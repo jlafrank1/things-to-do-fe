@@ -7,7 +7,7 @@ const FavoritesList = (props) => {
   const { currentUser, token, BASE_URL } = useContext(
     LoginContext
   );
-  // console.log("FAVLIST BASE_URL > ", BASE_URL)
+
   console.log("FAVLIST currentUser > ", currentUser)
   const user = currentUser._id
 
@@ -17,20 +17,11 @@ const FavoritesList = (props) => {
     try {
       const favorites = await fetch(BASE_URL + "/favorites");
       const parsedFavorites = await favorites.json();
-      // console.log("FAVLIST parsedFavs > ", parsedFavorites);
-      // console.log("FAVLIST parsedFavs creator > ", parsedFavorites[0].creator._id)
       setFavorites(parsedFavorites);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // const getUserFavorites = () => {
-  //   console.log("FAVLIST > getUserFavorites > user id > ", favorites[0].creator._id)
-  //   // for all items in favorites array
-  //   // if favorites[i].creator._id === user
-  //   // map it out
-  // }
 
   const userFavorites = favorites.filter(userFavorite => (userFavorite.creator._id === user))
   console.log(userFavorites)
@@ -44,8 +35,6 @@ const FavoritesList = (props) => {
         {
           method: "DELETE",
           headers: {
-            // "content-type": "application/json",
-            // "access-control-allow-origin": "*",
             "Authorization": `Bearer ${token}`,
           },
         }
