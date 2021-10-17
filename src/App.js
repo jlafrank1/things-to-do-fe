@@ -27,6 +27,7 @@ export const LoginContext = React.createContext();
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // console.log("APP currentUser > ", currentUser)
 
   const registerUser = async (data) => {
     console.log("APP Base_URL > ", BASE_URL)
@@ -43,7 +44,7 @@ function App() {
         configs
       );
       const parsedUser = await newUser.json();
-      console.log("APP parsedUser register > ", parsedUser);
+      // console.log("APP parsedUser register > ", parsedUser);
       setUserToken(parsedUser.token);
       setCurrentUser(parsedUser.user);
       setIsAuthenticated(parsedUser.isLoggedIn);
@@ -67,7 +68,7 @@ function App() {
       };
       const newUser = await fetch(BASE_URL + "/auth/login", configs);
       const parsedUser = await newUser.json();
-      console.log("APP parsedUser login > ", parsedUser);
+      // console.log("APP parsedUser login > ", parsedUser);
       setUserToken(parsedUser.token);
       setCurrentUser(parsedUser.user);
       setIsAuthenticated(parsedUser.isLoggedIn);
@@ -106,17 +107,22 @@ function App() {
       >
         <main>
       <Stack direction="horizontal" gap={3}>
-        <div><button className="button" onClick={handleShowLogin}>
+        {! currentUser.email ?
+        <><div><button className="button" onClick={handleShowLogin}>
           Login
         </button></div>
 
         <div><button className="button" onClick={handleShowRegister}>
           Sign up
-        </button></div>
-
+        </button></div></> :
+        <>
+        <div><button className="button">Log out</button></div>
         <div><button className="button" onClick={handleShowFavorites}>
           View Favorites
         </button></div>
+
+        </> }
+
       </Stack>
 
       {/* Modals */}
