@@ -88,6 +88,7 @@ const FavoriteResults = (props) => {
             onChange={handleChange}
           />
           <input
+            type="hidden"
             name="creator"
             value={currentUser._id}
             onChange={handleChange}
