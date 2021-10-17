@@ -7,14 +7,9 @@ import { LoginContext } from "../App";
 const FavoriteResults = (props) => {
   const { activity, type } = useContext(DataContext);
   const { currentUser, token, BASE_URL } = useContext(LoginContext);
-  // console.log("FAVRESULTS CurrentUser > ", currentUser);
-  // console.log("FAVRESULTS currentUser Id >", currentUser._id);
-  // console.log("FAVRESULTS Token > ", token)
-  // console.log("FAVRESULTS BASE_URL > ", BASE_URL)
 
   // form state
   const [input, setInput] = useState();
-
   const [form, setForm] = useState();
 
   // handle submit
@@ -28,7 +23,6 @@ const FavoriteResults = (props) => {
     });
 
     try {
-      // console.log("FAVRESULTS > Hitting Try");
       const config = {
         body: JSON.stringify(form),
         method: "POST",
@@ -38,20 +32,16 @@ const FavoriteResults = (props) => {
           "Authorization": `bearer ${token}`,
         },
       };
-      // console.log("FAVRESULTS > Created configs");
-
-      const createdFavorite = await fetch(
-        BASE_URL + "/favorites",
-        config
-      );
-      console.log("FAVRESULTS > createdFavorite", createdFavorite);
-
+      const createdFavorite = await fetch(BASE_URL + "/favorites", config);
       const parsedFavorite = await createdFavorite.json();
-      console.log(
-        "FAVORITERESULTS > handleSubmit > your new favorite is > ",
-        parsedFavorite
-      );
+      console.log("FAVORITERESULTS > handleSubmit > your new favorite is > ",  parsedFavorite);
+
+      if (!currentUser._id) {
+        alert("Please log in!")
+      } else {
       alert("Added to Favorites!")
+      }
+
     } catch (err) {
       console.log(err);
     }
