@@ -59,7 +59,7 @@ const FavoriteResults = (props) => {
       isDone: false,
       creator: currentUser._id,
     });
-  }, [activity, type, currentUser._id]);
+  }, [activity, type, currentUser]);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });

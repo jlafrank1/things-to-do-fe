@@ -15,7 +15,9 @@ const Results = (props) => {
       <h2>{activity}</h2>
 
       <div id="email-results">
-        {activity ? <FavoriteResults currentUser={currentUser} /> : null}
+        {activity && currentUser ? (
+          <FavoriteResults currentUser={currentUser} />
+        ) : null}
       </div>
     </>
   );

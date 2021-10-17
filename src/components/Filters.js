@@ -1,11 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Results from "./Results";
 import { Row, Col, Container, Stack } from "react-bootstrap";
+import { LoginContext } from "../App";
 
 export const DataContext = React.createContext();
 
 const Filters = (props) => {
+  const { currentUser } = useContext(LoginContext);
+  console.log("FILTERS currentUser from context > ", currentUser);
   const types = [
     "education",
     "recreational",
@@ -92,7 +95,7 @@ const Filters = (props) => {
                 <h2>You should:</h2>
                 <hr />
                 <br />
-                <Results />
+                <Results currentUser={currentUser} />
               </div>
             </Col>
           </Row>
