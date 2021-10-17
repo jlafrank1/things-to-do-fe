@@ -1,13 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Results from "./Results";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Stack } from "react-bootstrap";
 
 export const DataContext = React.createContext();
 
 const Filters = (props) => {
-
-
   const types = [
     "education",
     "recreational",
@@ -53,7 +51,7 @@ const Filters = (props) => {
         onClick={getTypeResult}
         key="{type}"
         value={type}
-        className="button filter"
+        className="button"
       >
         {type}
       </button>
@@ -67,27 +65,31 @@ const Filters = (props) => {
           <Row>
             <Col
               xs={{ span: 12, order: "last" }}
-              sm={{ span: 6, order: "first" }}
-              md={{ span: 3, order: "first" }}
+              sm={{ span: 12, order: "first" }}
+              md={{ span: 12, order: "first" }}
             >
-              <div>
+              <div className="center">
                 <button
                   onClick={getImBoredResult}
                   className="button bored-button"
                 >
-                  I'm <br /> Bored
+                  I'm <br />
+                  Bored!{" "}
                 </button>
 
-                <div>{typeButton}</div>
+                <Stack direction="horizontal">
+                  <div>{typeButton}</div>
+                </Stack>
               </div>
             </Col>
-
+          </Row>
+          <Row>
             <Col
               xs={{ span: 12, order: "first" }}
-              sm={{ span: 6, order: "last" }}
-              md={{ span: 9, order: "last" }}
+              sm={{ span: 12, order: "last" }}
+              md={{ span: 12, order: "last" }}
             >
-              <div>
+              <div className="center">
                 <h2>You should:</h2>
                 <br />
                 <Results />

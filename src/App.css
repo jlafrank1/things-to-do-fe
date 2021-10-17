@@ -3,7 +3,7 @@
 }
 
 .background {
-  background-image: url('./gradient.png');
+  background-image: url("./gradient.png");
   background-size: cover;
 }
 
@@ -35,18 +35,20 @@ main {
   font-size: 12px;
   transition: 0.5s;
   text-align: center;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   color: black;
 }
 
 @keyframes bounce {
   0% {
-    transform: rotate(0deg)
-  } 20% {
-    transform: translate(10px)
-  } 100% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: translate(10px);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 
@@ -66,11 +68,15 @@ main {
   /* background-color: lime; */
 }
 
-
 a {
   margin: 5px 5px 5px 5px;
 }
 
 .small-text {
   font-size: 12px;
+}
+
+.center {
+  /* background-color: lime; */
+  text-align: center;
 }

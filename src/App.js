@@ -11,9 +11,9 @@ import FavoritesList from "./components/FavoritesList";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 
-require('dotenv').config()
+require("dotenv").config();
 
-const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
+const BASE_URL = process.env.REACT_APP_PRODUCTION_URL;
 
 // let BASE_URL;
 // if (process.env.NODE_ENV === "production") {
@@ -30,7 +30,7 @@ function App() {
   // console.log("APP currentUser > ", currentUser)
 
   const registerUser = async (data) => {
-    console.log("APP Base_URL > ", BASE_URL)
+    console.log("APP Base_URL > ", BASE_URL);
     try {
       const configs = {
         method: "POST",
@@ -39,10 +39,7 @@ function App() {
           "Content-Type": "application/json",
         },
       };
-      const newUser = await fetch(
-        BASE_URL + "/auth/register",
-        configs
-      );
+      const newUser = await fetch(BASE_URL + "/auth/register", configs);
       const parsedUser = await newUser.json();
       // console.log("APP parsedUser register > ", parsedUser);
       setUserToken(parsedUser.token);
@@ -82,18 +79,16 @@ function App() {
   };
 
   const logoutUser = async (data) => {
-    console.log("APP logout route")
+    console.log("APP logout route");
     // useState to set currentUser and isAuthenticated to zero
     // and clearUserToken to clear token
-    setCurrentUser('')
-    setIsAuthenticated('')
-    clearUserToken('')
-    console.log("APP logoutUser new currentuser > ", currentUser)
-  }
+    setCurrentUser("");
+    setIsAuthenticated("");
+    clearUserToken("");
+    console.log("APP logoutUser new currentuser > ", currentUser);
+  };
 
-  useEffect(()=> {
-
-  })
+  useEffect(() => {});
 
   const [showLogin, setShowLogin] = useState(false);
   const handleCloseLogin = () => setShowLogin(false);
@@ -107,7 +102,6 @@ function App() {
   const handleCloseFavorites = () => setShowFavorites(false);
   const handleShowFavorites = () => setShowFavorites(true);
 
-
   return (
     <div className="background">
       <LoginContext.Provider
@@ -117,48 +111,67 @@ function App() {
           registerUser: registerUser,
           loginUser: loginUser,
           token: getUserToken(),
-          BASE_URL
+          BASE_URL,
         }}
       >
         <main>
-      <Stack direction="horizontal">
-        {!currentUser.email ?
-        <><div><button className="button" onClick={handleShowLogin}>
-          Login
-        </button></div>
+          <Stack direction="horizontal">
+            {!currentUser.email ? (
+              <>
+                <div>
+                  <button className="button" onClick={handleShowLogin}>
+                    Login
+                  </button>
+                </div>
 
-        <div><button className="button" onClick={handleShowRegister}>
-          Sign up
-        </button></div></> :
-        <>
-        <div><button className="button" onClick={logoutUser}>Log out</button></div>
-        <div><button className="button" onClick={handleShowFavorites}>
-          View Favorites
-        </button></div>
+                <div>
+                  <button className="button" onClick={handleShowRegister}>
+                    Sign up
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <h4>Welcome! You're logged in.</h4>
+                </div>
+                <div>
+                  <button className="button" onClick={logoutUser}>
+                    Log out
+                  </button>
+                </div>
+                <div>
+                  <button className="button" onClick={handleShowFavorites}>
+                    View Favorites
+                  </button>
+                </div>
+              </>
+            )}
+          </Stack>
 
-        <div><h4>Welcome! You're logged in.</h4></div>
+          {/* Modals */}
+          <Modal show={showLogin} onHide={handleCloseLogin}>
+            <LoginForm onHide={handleCloseLogin} />
+          </Modal>
 
-        </> }
+          <Modal show={showRegister} onHide={handleCloseRegister}>
+            <RegisterForm
+              registerUser={registerUser}
+              onHide={handleCloseRegister}
+            />
+          </Modal>
 
-      </Stack>
-
-      {/* Modals */}
-      <Modal show={showLogin} onHide={handleCloseLogin}>
-        <LoginForm onHide={handleCloseLogin}/>
-      </Modal>
-
-      <Modal show={showRegister} onHide={handleCloseRegister}>
-        <RegisterForm registerUser={registerUser} onHide={handleCloseRegister} />
-      </Modal>
-
-      <Modal show={showFavorites} onHide={handleCloseFavorites}>
-        <FavoritesList onHide={handleCloseFavorites}/>
-      </Modal>
-
-          <Intro />
-          <Filters />
+          <Modal show={showFavorites} onHide={handleCloseFavorites}>
+            <FavoritesList onHide={handleCloseFavorites} />
+          </Modal>
+          <div className="center">
+            <Intro />
+            <Filters />
+          </div>
         </main>
-        <Footer />
+        <div className="center">
+          <Footer />
+        </div>
       </LoginContext.Provider>
     </div>
   );
