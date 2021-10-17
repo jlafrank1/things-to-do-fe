@@ -6,6 +6,7 @@
 .background {
   background-image: url("./gradient.png");
   background-size: cover;
+  background-attachment: fixed;
 }
 
 main {
@@ -58,9 +59,18 @@ main {
   animation: bounce 1s;
 }
 
+/* in Filters, wrapping the results container*/
+#results-container {
+  margin: 50px 0 20px 0;
+  background-color: rgba(139, 127, 186, 0.5);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
 /* Results component, wrapping EmailResults */
 #email-results {
-  margin: 40px 0 30px 0;
+  margin: 40px 0 0 0;
 }
 
 #email-form {

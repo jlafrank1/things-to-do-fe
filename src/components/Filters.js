@@ -82,15 +82,15 @@ const Filters = (props) => {
               </div>
             </Col>
           </Row>
-          <Row>
+          <Row className="justify-content-md-center">
             <Col
               xs={{ span: 12, order: "first" }}
-              sm={{ span: 12, order: "last" }}
-              md={{ span: 12, order: "last" }}
+              sm={{ span: 10, order: "last" }}
+              md={{ span: 8, order: "last" }}
             >
-              <div className="center">
-                <br />
+              <div className="center" id="results-container">
                 <h2>You should:</h2>
+                <hr />
                 <br />
                 <Results />
               </div>
