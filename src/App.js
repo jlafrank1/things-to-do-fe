@@ -136,6 +136,8 @@ function App() {
           View Favorites
         </button></div>
 
+        <div><h3>Welcome, {currentUser.email}!</h3></div>
+
         </> }
 
       </Stack>

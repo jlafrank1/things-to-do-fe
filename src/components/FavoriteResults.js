@@ -51,6 +51,7 @@ const FavoriteResults = (props) => {
         "FAVORITERESULTS > handleSubmit > your new favorite is > ",
         parsedFavorite
       );
+      alert("Added to Favorites!")
     } catch (err) {
       console.log(err);
     }
