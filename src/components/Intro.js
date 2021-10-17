@@ -6,7 +6,7 @@ const Intro = (props) => {
     <>
       <Container>
         <div>
-          <Row className="justify-content-md-center">
+          <Row className="justify-content-center">
             <Col
               xs={{ span: 12, order: "first" }}
               sm={{ span: 10, order: "last" }}

@@ -3,13 +3,10 @@ import { LoginContext } from "../App";
 import { Modal, Table } from "react-bootstrap";
 
 const FavoritesList = (props) => {
+  const { currentUser, token, BASE_URL } = useContext(LoginContext);
 
-  const { currentUser, token, BASE_URL } = useContext(
-    LoginContext
-  );
-
-  console.log("FAVLIST currentUser > ", currentUser)
-  const user = currentUser._id
+  console.log("FAVLIST currentUser > ", currentUser);
+  const user = currentUser._id;
 
   const [favorites, setFavorites] = useState([]);
 
@@ -23,23 +20,25 @@ const FavoritesList = (props) => {
     }
   };
 
-  const userFavorites = favorites.filter(userFavorite => (userFavorite.creator._id === user))
-  console.log(userFavorites)
+  const userFavorites = favorites.filter(
+    (userFavorite) => userFavorite.creator._id === user
+  );
+  console.log(userFavorites);
 
   const deleteFavorite = async (id) => {
-    console.log("FAVLIST > deleteFavorite id > ", id)
-    console.log("FAVLIST > deleteFavorites token > ", token)
+    console.log("FAVLIST > deleteFavorite id > ", id);
+    console.log("FAVLIST > deleteFavorites token > ", token);
     try {
-      const deletedFavorite = await fetch(
-        BASE_URL + "/favorites/" + id,
-        {
-          method: "DELETE",
-          headers: {
-            "Authorization": `Bearer ${token}`,
-          },
-        }
+      const deletedFavorite = await fetch(BASE_URL + "/favorites/" + id, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(
+        "FAVLIST > deleteFavorite deletedFavorite > ",
+        deletedFavorite
       );
-      console.log("FAVLIST > deleteFavorite deletedFavorite > ", deletedFavorite)
       const parsedFavorite = await deletedFavorite.json();
       console.log("FAVLIST > deleteFavorite parsedFavorite > ", parsedFavorite);
       const updatedFavorites = favorites.filter(
@@ -69,17 +68,15 @@ const FavoritesList = (props) => {
     <div>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-        <Table>
-          <table>
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Activity</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>{favoritesRow}</tbody>
-          </table>
+        <Table striped bordered responsive>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Activity</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>{favoritesRow}</tbody>
         </Table>
       </Modal.Body>
     </div>

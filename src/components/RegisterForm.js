@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { LoginContext } from "../App";
 
 const RegisterForm = (props) => {
@@ -14,7 +14,7 @@ const RegisterForm = (props) => {
     console.log("REG FORM created user token > ", createdUserToken);
 
     // invoke close modal here
-    props.onHide()
+    props.onHide();
 
     setInput(initialState);
   };
@@ -27,28 +27,32 @@ const RegisterForm = (props) => {
     <>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-          <label email="email">Email: </label>
-          <input
-            id="email"
-            name="email"
-            value={input.email}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <label htmlFor="password">Password: </label>
-          <input
-            id="password"
-            name="password"
-            value={input.password}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
+        <h1 className="center">Register</h1>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label email="email">Email: </Form.Label>
+            <Form.Control
+              id="email"
+              name="email"
+              value={input.email}
+              onChange={handleChange}
+            />
+            <Form.Text className="text-muted">Or username</Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="password">Password: </Form.Label>
+            <br />
+            <Form.Control
+              id="password"
+              name="password"
+              value={input.password}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
           <input type="submit" value="Register" />
-        </form>
+        </Form>
       </Modal.Body>
     </>
   );
