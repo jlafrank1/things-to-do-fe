@@ -117,7 +117,7 @@ function App() {
         <main>
           <div className="right">
             <Stack direction="horizontal">
-              {!currentUser ? (
+              {!currentUser.email ? (
                 <>
                   <div>
                     <button className="button" onClick={handleShowLogin}>
