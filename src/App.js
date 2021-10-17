@@ -27,7 +27,7 @@ export const LoginContext = React.createContext();
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // console.log("APP currentUser > ", currentUser)
+  console.log("APP currentUser > ", currentUser);
 
   const registerUser = async (data) => {
     console.log("APP Base_URL > ", BASE_URL);
@@ -88,8 +88,6 @@ function App() {
     console.log("APP logoutUser new currentuser > ", currentUser);
   };
 
-  useEffect(() => {});
-
   const [showLogin, setShowLogin] = useState(false);
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);
@@ -101,6 +99,10 @@ function App() {
   const [showFavorites, setShowFavorites] = useState(false);
   const handleCloseFavorites = () => setShowFavorites(false);
   const handleShowFavorites = () => setShowFavorites(true);
+
+  useEffect(() => {
+    setCurrentUser();
+  }, []);
 
   return (
     <div className="background">
