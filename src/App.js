@@ -13,8 +13,7 @@ import LoginForm from "./components/LoginForm";
 
 require('dotenv').config()
 
-// const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
-const BASE_URL = process.env.REACT_APP_DEV_URL
+const BASE_URL = process.env.REACT_APP_PRODUCTION_URL
 
 // let BASE_URL;
 // if (process.env.NODE_ENV === "production") {
