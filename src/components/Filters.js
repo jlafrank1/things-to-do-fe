@@ -88,7 +88,7 @@ const Filters = (props) => {
               sm={{ span: 10, order: "last" }}
               md={{ span: 8, order: "last" }}
             >
-              <div className="center" id="results-container">
+              <div className="center purple-container">
                 <h2>You should:</h2>
                 <hr />
                 <br />

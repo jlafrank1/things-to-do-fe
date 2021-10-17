@@ -60,7 +60,7 @@ main {
 }
 
 /* in Filters, wrapping the results container*/
-#results-container {
+.purple-container {
   margin: 50px 0 20px 0;
   background-color: rgba(139, 127, 186, 0.5);
   padding: 20px;

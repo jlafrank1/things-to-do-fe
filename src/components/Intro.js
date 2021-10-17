@@ -5,19 +5,26 @@ const Intro = (props) => {
   return (
     <>
       <Container>
-        <Row>
-          <Col>
-            <h1>Things To Do</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <p>
-              Looking for something to do? Hit the "I'm bored" button, or filter
-              results by category.
-            </p>
-          </Col>
-        </Row>
+        <div>
+          <Row className="justify-content-md-center">
+            <Col
+              xs={{ span: 12, order: "first" }}
+              sm={{ span: 10, order: "last" }}
+              md={{ span: 8, order: "last" }}
+            >
+              <h1>Things To Do</h1>
+              <hr />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p>
+                Looking for something to do? Hit the "I'm bored" button, or
+                filter results by category.
+              </p>
+            </Col>
+          </Row>
+        </div>
       </Container>
     </>
   );
