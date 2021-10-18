@@ -96,3 +96,7 @@ a {
   /* background-color: lime; */
   margin-right: 0px;
 }
+
+#logo {
+  margin: -150px 0 -90px 0;
+}

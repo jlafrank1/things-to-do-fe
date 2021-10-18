@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
+import logo from "../assets/logo.png";
 
 const Intro = (props) => {
   return (
@@ -12,7 +13,14 @@ const Intro = (props) => {
               sm={{ span: 10, order: "last" }}
               md={{ span: 8, order: "last" }}
             >
-              <h1>Things To Do</h1>
+              <img
+                src={logo}
+                alt="logo"
+                height="400"
+                width="400"
+                id="logo"
+                fluid
+              />
               <hr />
             </Col>
           </Row>
