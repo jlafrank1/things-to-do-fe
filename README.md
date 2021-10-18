@@ -161,8 +161,11 @@ Please strike up a conversation with me, especially if you're interested in roll
 
 ## Acknowledgments
 
-This product is my capstone project for the **General Assembly Software Engineering Immersive program** completed in Fall 2021. I learned all languages, frameworks, and ecosystems (GitHub and Heroku) from the incredible instructional team of [Holly Girourd](https://github.com/hollygirouard), [Joshua Smith](https://github.com/maker-jws), and [Kenny Bushman](https://github.com/kbbushman).
-I've collaborated with some amazing people in my cohort, and many people deserve thanks and shoutouts.
+This product is my capstone project for the **General Assembly Software Engineering Immersive program** completed in Fall 2021. I learned all languages, frameworks, and ecosystems (GitHub and Heroku) from the incredible instructional team of [Holly Girourd](https://github.com/hollygirouard), [Joshua Smith](https://github.com/maker-jws), [Kenny Bushman](https://github.com/kbbushman), Sean Feiner, and [Jackson Reeves](https://github.com/jtreeves).
+
+I've collaborated with some amazing people in my cohort, and many people deserve thanks and shoutouts. [Ada](https://github.com/adaruiz93), Alan, [Alex](https://github.com/alxalves), [Ari](https://github.com/ari-flowers), [DaeYoung](https://github.com/style6513), [Froy](https://github.com/Froy-y), [Isabel](https://github.com/isabellukk), [Jared](https://github.com/jmalabed), [Jay](https://github.com/jthurber87), Jules, [Metha](https://github.com/methak), [Mike](https://github.com/hamilton-mike), and [Rio](https://github.com/riosol7). We did it!
+
+The following resources helped me immensely when creating this project:
 
 - [General Assembly](https://generalassemb.ly/)
 - [The Bored API](https://www.boredapi.com/)
