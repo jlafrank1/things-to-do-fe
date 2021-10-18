@@ -67,9 +67,9 @@ const Filters = (props) => {
         <Container>
           <Row>
             <Col
-              xs={{ span: 12, order: "last" }}
-              sm={{ span: 12, order: "first" }}
-              md={{ span: 12, order: "first" }}
+              xs={{ span: 12, order: 12 }}
+              sm={{ span: 12, order: 1 }}
+              md={{ span: 12, order: 1 }}
             >
               <div className="center">
                 <button
@@ -87,9 +87,9 @@ const Filters = (props) => {
           </Row>
           <Row className="justify-content-center">
             <Col
-              xs={{ span: 12, order: "first" }}
-              sm={{ span: 10, order: "last" }}
-              md={{ span: 8, order: "last" }}
+              xs={{ span: 12, order: 1 }}
+              sm={{ span: 10, order: 12 }}
+              md={{ span: 8, order: 12 }}
             >
               <div className="center purple-container">
                 <h2>You should:</h2>
