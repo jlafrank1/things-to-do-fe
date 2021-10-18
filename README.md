@@ -1,101 +1,55 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
+<div align="center" id="top">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="assets/logo.png" alt="Logo" width="150" height="150">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Things To Do: The Boredom Cure</h3>
 
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
 </div>
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Things To Do is a full stack MERN application designed to help users come up with things to do when bored. The app generates random ideas, and allows users to save ideas to their favorites lists if logged in. The random ideas are fetched from [The Bored API](https://www.boredapi.com/). This project was developed as a capstone project for a General Assembly Software Engineering Immersive Bootcamp during Summer/Fall 2021.
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+## Overview & User Stories
 
-Here's why:
+- All users can generate random things to do when bored
+- If a user logs in, they can favorite items to their favorites list
+- Users can view their favorite items in one screen, and delete items from their list
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+### How it started:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Wireframe
+![Things To Do WireFrame](./assets/wireframe.png)
 
-Use the `BLANK_README.md` to get started.
+### How it's going:
+
+Landing Page when not logged in
+![Things To Do Landing Page](./assets/scrn_loggedout.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This is a full-stack MERN application that utilizes the following technologies:
 
-- [Next.js](https://nextjs.org/)
+- [Mongo](https://www.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/docs/)
+- [Express](https://expressjs.com/)
 - [React.js](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Angular](https://angular.io/)
-- [Svelte](https://svelte.dev/)
-- [Laravel](https://laravel.com)
+- [Node](https://nodejs.org/en/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 - [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+- [passport](https://www.passportjs.org/)
+- [passport-jwt](http://www.passportjs.org/packages/passport-jwt/)
+- [google-fonts](https://fonts.google.com/)
+- [Heroku](https://www.heroku.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -103,33 +57,52 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get started, create a master folder that will host two repos: one for front end, and one for back end. From the master folder, clone this repo down for your front end:
 
-### Prerequisites
+```sh
+git clone git@github.com:jlafrank1/things-to-do-be.git
+```
 
-This is an example of how to list things you need to use the software and how to install them.
+And this repo for your backend:
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+```sh
+git clone git@github.com:jlafrank1/things-to-do-be.git
+```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
+For this project, you will need to install the following dependencies in your front end folder:
+
+- Bootstrap
+- dotenv
+- react
+- react-bootstrap
+- react-dom
+
+#### How to install these packages
+
+In your terminal, run:
+
+```
+npm init
+npm i bootstrap dotenv react react-bootstrap react-dom
+```
+
+Verify these have been installed by checking your package.json file.
+
+And do the same for these dependencies in your backend folder:
+
+- bcrypt
+- body-parser
+- cors
+- dotenv
+- ejs
+- express
+- jsonwebtoken
+- method-override
+- mongoose
+- passport
+- passport-jwt
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -137,9 +110,26 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+When a user is logged in, they can access the button "Favorite This Result." This will save the currently displayed idea to the currently logged in user's Favorites list.
+![Things To Do Logged In](./assets/scrn_loggedin.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+The following code allows fetched results to be displayed to all users, regardless if they are logged in, but only displays the "FavoriteResults" component if a user is logged in.
+
+```
+   return (
+    <>
+      <h2>{activity}</h2>
+
+      <div id="email-results">
+        {activity && currentUser ? (
+          <FavoriteResults currentUser={currentUser} />
+        ) : null}
+      </div>
+    </>
+```
+
+The user can view and delete items from their favorites list via a modal.
+![Things To Do View Favorites](./assets/scrn_faves.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -147,40 +137,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [] Add Additional Templates w/ Examples
-- [] Add "components" document to easily copy & paste sections of the readme
-- [] Multi-language Support
-  - [] Chinese
-  - [] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+- [] Optimize landing page and "Welcome" message for mobile
+- [] Create a "loading" animation to show when fetch call is loading
+- [] Improve UX feedback for when items are added to a Favorites list
+- [] Incorporate Spotify API to "Play a Random Song"
+- [] Allow users to Email results to a friend
+- [] Allow users to mark items as "done" instead of just deleting them from the list
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -188,9 +150,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Please strike up a conversation with me, especially if you're interested in rollerskates!
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+- [LinkedIn](https://www.linkedin.com/in/jesslafrank/)
+- [GitHub](https://github.com/jlafrank1)
+- [Instagram](https://www.instagram.com/blood.sweat.and.ears/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -198,32 +162,11 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+This product is my capstone project for the **General Assembly Software Engineering Immersive program** completed in Fall 2021. I learned all languages, frameworks, and ecosystems (GitHub and Heroku) from the incredible instructional team of [Holly Girourd](https://github.com/hollygirouard), [Joshua Smith](https://github.com/maker-jws), and [Kenny Bushman](https://github.com/kbbushman).
+I've collaborated with some amazing people in my cohort, and many people deserve thanks and shoutouts.
 
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
-- [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
+- [General Assembly](https://generalassemb.ly/)
+- [The Bored API](https://www.boredapi.com/)
+- [coolers.co](https://coolors.co/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
